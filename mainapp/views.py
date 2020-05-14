@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.http import Http404
-from .models import BlogPost
+from .models import BlogPost, Tag
 
 from datetime import datetime
 ALL_POSTS = [
@@ -33,7 +33,7 @@ def post(request, id):
 
 def tag_posts(request, name):
     name = Tag.clean(name)
-    title = f"Posts about {name}"
+    title = "Posts about {}".format(name)
     tag = get_object_or_404(Tag, name=name)
     posts = BlogPost.objects.filter(tags=tag)
     return render(request, 'mainapp/filtered_post_list.html', {'posts':posts, 'title': title})
