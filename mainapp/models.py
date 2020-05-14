@@ -19,4 +19,7 @@ class Tag(models.Model):
     
     def clean(self):
         return self.name.lower()
+    
+    def __str__(self):
+        return self.name
         
