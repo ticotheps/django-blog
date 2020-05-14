@@ -2,6 +2,9 @@
 settings.json
 .vscode/
 
+# XML Reports
+.report.xml
+
 ### OSX ###
 .DS_Store
 .AppleDouble
